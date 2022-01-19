@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr" dir="ltr">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+
+	<meta name="author" content="webmaster" />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>Nos formations</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link href="https://www.rsmaguyane.fr/templates/rsmaguyane/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="https://www.rsmaguyane.fr/component/search/?Itemid=110&amp;format=opensearch" rel="search" title="Valider RSMA Guyane" type="application/opensearchdescription+xml" />
+	<link href="https://www.rsmaguyane.fr/plugins/system/jce/css/content.css?aa754b1f19c7df490be4b958cf085e7c" rel="stylesheet" />
+	<link href="https://www.rsmaguyane.fr/templates/rsmaguyane/css/template.css" rel="stylesheet" />
+	<link href="https://www.rsmaguyane.fr/templates/rsmaguyane/css/custom.css" rel="stylesheet" />
+	<link href="https://www.rsmaguyane.fr/media/mod_advanced_cookies/css/style_front-end.css" rel="stylesheet" />
+<%if params[:action] == 'mediatheque' || params[:controller] == 'categories'%>
+	<link href="https://www.rsmaguyane.fr/templates/rsmaguyane/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="https://www.rsmaguyane.fr/component/search/?Itemid=196&amp;format=opensearch" rel="search" title="Valider RSMA Guyane" type="application/opensearchdescription+xml" />
+	<link href="https://www.rsmaguyane.fr/media/com_phocagallery/css/main/phocagallery.css" rel="stylesheet" />
+	<link href="https://www.rsmaguyane.fr/media/com_phocagallery/css/main/rating.css" rel="stylesheet" />
+	<link href="https://www.rsmaguyane.fr/media/com_phocagallery/css/custom/default.css" rel="stylesheet" />
+	<link href="https://www.rsmaguyane.fr/plugins/system/jce/css/content.css?aa754b1f19c7df490be4b958cf085e7c" rel="stylesheet" />
+	<link href="https://www.rsmaguyane.fr/templates/rsmaguyane/css/template.css" rel="stylesheet" />
+	<link href="https://www.rsmaguyane.fr/templates/rsmaguyane/css/custom.css" rel="stylesheet" />
+	<link href="https://www.rsmaguyane.fr/media/mod_advanced_cookies/css/style_front-end.css" rel="stylesheet" />
+<%end%>
+	<style>
+.imageitem {
+width:200px;
+height:200px;
+}
+.hob_banner{bottom : 0!important;-webkit-animation-name: animatedown;-webkit-animation-duration: 0.8s;animation-name: animatedown;animation-duration: 0.8s}
+.hob_banner{background-color: #27323d!important;}
+.text_banner{color:#acb8c1!important;}
+.info_link{color:#54a6f2!important;}
+#hob_copyright{color:#acb8c1!important;}
+#hob_copyright a{color:#54a6f2!important;}
+.btn_ok{background-color: #54a6f2!important;border: 2px solid#54a6f2!important;color:#ffffff!important;}.btn_ok:hover{filter: opacity(50%);background-color: #54a6f2!important;border: 2px solid#54a6f2!important;color:#ffffff!important;}
+.btn_deny{background-color: #e58639!important;border: 2px solid#e58639!important;color:#ffffff!important;}.btn_deny:hover{filter: opacity(50%);background-color: #e58639!important;border: 2px solid#e58639!important;color:#ffffff!important;}
+.btn_settings{background-color: #27323d!important;border: 2px solid#ffffff!important;color:#ffffff!important;}.btn_settings:hover{filter: opacity(50%);background-color: #27323d!important;border: 2px solid#ffffff!important;color:#ffffff!important;}
+#setting_btn{background-color: #54a6f2!important;border: 2px solid#54a6f2!important;color:#ffffff!important;}.btn_settings:hover{}
+.hob_modal-header{background-color: #27323d!important;}
+#modalLabel{color:#acb8c1!important;}
+#setting{left: 10px; position: fixed;}
+.hob_modal-content{max-width: 960px;}
+.dropdown-menu > li > a[href="<%=request.path%>"], .dropdown-menu > li > a[href="<%=request.path%>"]:hover, .dropdown-menu > li > a[href="<%=request.path%>"]:focus {
+    color: #333;
+    text-decoration: none;
+    outline: 0;
+    background-color: #0081c2;
+    background-image: -moz-linear-gradient(top,#08c,#0077b3);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#08c),to(#0077b3));
+    background-image: -webkit-linear-gradient(top,#08c,#0077b3);
+    background-image: -o-linear-gradient(top,#08c,#0077b3);
+    background-image: linear-gradient(to bottom,#08c,#0077b3);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0076b2', GradientType=0);
+}
+.dropdown-menu > li > a[href="<%=request.path%>"]:hover, .dropdown-menu > li > a[href="<%=request.path%>"]:focus {
+    color: #fff;
+}
+<%=yield :moncss%>
+	</style>
+
+	<script type="application/json" class="joomla-script-options new">{"hobrgpdparams":["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],"hobrgpdexpiration":"30","cookie_validation":false,"service":"3c646976207374796c653d22666c6f61743a2072696768743b20636c6561723a20626f74683b222069643d22686f625f666565745f646976223e3c7370616e2069643d22686f625f6665657422207374796c653d22636f6c6f723a20626c61636b21696d706f7274616e743b223e26233136393b436f70797269676874203c61207374796c653d22666f6e742d73697a653a203134707821696d706f7274616e743b20636f6c6f723a206d656469756d626c756521696d706f7274616e743b2220687265663d2268747470733a2f2f7777772e686f622d6672616e63652e636f6d2f636f6d706f73616e74732d6a6f6f6d6c612f726770642d6a6f6f6d6c612e68746d6c22207469746c653d2252475044204a6f6f6d6c61223e20484f42204672616e63652053657276696365732c20457870657274204a6f6f6d6c613c2f613e3c2f7370616e3e3c2f6469763e","csrf.token":"0127a435c3069ee621cb5580e27f7dba","system.paths":{"root":"","base":""},"system.keepalive":{"interval":840000,"uri":"\/component\/ajax\/?format=json"}}</script>
+	<script src="https://www.rsmaguyane.fr/media/jui/js/jquery.min.js?b3b7f42348ca5023930c2b9fba727d3e"></script>
+	<script src="https://www.rsmaguyane.fr/media/jui/js/jquery-noconflict.js?b3b7f42348ca5023930c2b9fba727d3e"></script>
+	<script src="https://www.rsmaguyane.fr/media/jui/js/jquery-migrate.min.js?b3b7f42348ca5023930c2b9fba727d3e"></script>
+	<script src="https://www.rsmaguyane.fr/media/system/js/caption.js?b3b7f42348ca5023930c2b9fba727d3e"></script>
+	<script src="https://www.rsmaguyane.fr/media/jui/js/bootstrap.min.js?b3b7f42348ca5023930c2b9fba727d3e"></script>
+	<script src="https://www.rsmaguyane.fr/templates/rsmaguyane/js/template.js"></script>
+	<script src="https://www.rsmaguyane.fr/media/system/js/core.js?b3b7f42348ca5023930c2b9fba727d3e"></script>
+	<script src="https://www.rsmaguyane.fr/media/mod_advanced_cookies/js/hobrgpdscript.js"></script>
+	<!--[if lt IE 9]><script src="https://www.rsmaguyane.fr/media/system/js/html5fallback.js?b3b7f42348ca5023930c2b9fba727d3e"></script><![endif]-->
+	<!--[if lt IE 9]><script src="https://www.rsmaguyane.fr/media/system/js/polyfill.event.js?b3b7f42348ca5023930c2b9fba727d3e"></script><![endif]-->
+	<script src="https://www.rsmaguyane.fr/media/system/js/keepalive.js?b3b7f42348ca5023930c2b9fba727d3e"></script>
+	<script>
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+jQuery(function($){ initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips (event, container) { container = container || document;$(container).find(".hasTooltip").tooltip({"html": true,"container": "body"});} });
+	</script>
+
+		<link href="https://www.rsmaguyane.fr/templates/rsmaguyane/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+        <!--[if lt IE 9]>
+                <script src="https://www.rsmaguyane.fr/media/jui/js/html5.js"></script>
+        <![endif]-->
+    </head>
+
+    <body class=" com_content view-article no-layout no-task itemid-110">
+<h1 style="text-intend : -9999px; height : 0px; font-size: 0;margin:0;padding:0"> 
+Nos formations 
+</h1>
+
+        <div class="nav-blue">
+            <div class="container">
+                <div class="dot"></div>
+                <nav class="navigation" role="navigation">
+                    <div class="navbar pull-left">
+                        <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                    </div>
+                    <div class="nav-collapse">
+                        
+<div class="subnav">
+
+    <ul class="nav nav-pills menu">
+			<li class="item-101"><a href="/" >Accueil</a></li><li class="item-163 deeper dropdown parent"><a href="/?Itemid=163" class="dropdown-toggle" data-toggle="dropdown">Actualités <b class="caret"></b></a><ul class="dropdown-menu"><li class="item-262"><a href="https://www.facebook.com/RSMAdelaGuyane" target="_blank" title="Facebook" >Facebook du RSMA Guyane</a></li><li class="item-562"><a href="https://www.facebook.com/VolontairesRSMAGy/" target="_blank" >Facebook des Volontaires du RSMA Guyane</a></li><li class="item-264"><a href="https://twitter.com/rsma_gy" target="_blank" >Twitter</a></li><li class="item-263"><a href="http://rsma-guyane.over-blog.com/" target="_blank" >Blog RSMA Guyane</a></li></ul></li><li class="item-119 deeper dropdown parent"><a href="/rsma-guyane.html" class="dropdown-toggle" data-toggle="dropdown">RSMA Guyane <b class="caret"></b></a><ul class="dropdown-menu"><li class="item-302"><a href="/rsma-guyane/le-regiment.html" >Qui sommes-nous ?</a></li><li class="item-120"><a href="/rsma-guyane/notre-mission.html" >Notre mission</a></li><li class="item-135"><a href="/rsma-guyane/implantation.html" >Où sommes-nous ?</a></li><li class="item-121"><a href="/rsma-guyane/les-compagnies.html" >Les compagnies</a></li></ul></li><li class="item-110 current active deeper dropdown parent"><a href="/nos-formations.html" class="dropdown-toggle" data-toggle="dropdown">Nos formations <b class="caret"></b></a><ul class="dropdown-menu"><li class="item-111"><a href="/nos-formations/le-deroulement-des-formations.html" >Le déroulement des formations</a></li><li class="item-113"><a href="/nos-formations/les-filieres-de-formation.html" >Les filières de formation</a></li><li class="item-112"><a href="/nos-formations/la-remise-a-niveau-scolaire.html" >La remise à niveau scolaire</a></li><li class="item-144"><a href="/nos-formations/recrutement-2020.html" >Recrutement 2020</a></li></ul></li><li class="item-116 deeper dropdown parent"><a href="/espace-entreprise.html" class="dropdown-toggle" data-toggle="dropdown">ESPACE ENTREPRISE <b class="caret"></b></a><ul class="dropdown-menu"><li class="item-431"><a href="/espace-entreprise/newsletter-entreprises.html" >Newsletter &quot;Entreprises&quot;</a></li><li class="item-305"><a href="/espace-entreprise/un-recrutement-de-qualite.html" >Un recrutement de qualité</a></li><li class="item-387"><a href="/espace-entreprise/label-sma.html" >Label SMA</a></li><li class="item-145"><a href="/espace-entreprise/taxe-d-apprentissage.html" >Taxe d'apprentissage</a></li><li class="item-350"><a href="/espace-entreprise/l-europe.html" >L'Europe</a></li><li class="item-143"><a href="/espace-entreprise/sorties-de-formation-2020.html" >Sorties de Formation 2020</a></li></ul></li><li class="item-114 deeper dropdown parent"><a href="/travailler-pour-le-rsma.html" class="dropdown-toggle" data-toggle="dropdown">Travailler pour le RSMA <b class="caret"></b></a><ul class="dropdown-menu"><li class="item-304"><a href="/travailler-pour-le-rsma/etre-volontaire-technicien.html" >Etre volontaire technicien</a></li><li class="item-124"><a href="/travailler-pour-le-rsma/s-engager-comme-evsma.html" >S'engager comme EVSMA</a></li></ul></li><li class="item-117"><a href="/contact.html" >CONTACT</a></li><li class="item-196"><a href="/mediatheque.html" >Médiathèque</a></li><li class="item-118"><a href="/pam-2021.html" >PAM 2021</a></li><li class="item-477"><a href="/cercle-mess-du-rsma-guyane.html" >Cercle mess du RSMA-Guyane</a></li></ul>
+
+</div>
+                    </div>
+                </nav>
+                <div class="dot"></div>
+            </div>
+        </div>
+		<div class="container">
+			
+		</div>
+				
+        <!-- Body -->
+        <div class="body">
+            <div id="content-body" class="container">
+			 <div class="row-fluid">
+				<div aria-label="Fil de navigation" role="navigation">
+	<ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+					<li class="active">
+				<span class="divider icon-location"></span>
+			</li>
+
+						<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+											<a itemprop="item" href="/" class="pathway"><span itemprop="name">Accueil</span></a>
+					
+											<span class="divider">
+							<img src="/images/arroworange.png" alt="" />						</span>
+										<meta itemprop="position" content="1">
+				</li>
+<%=yield :addbreadscrumb%>
+	<%if !(params[:controller] == params[:action] || params[:controller] == 'welcome' ||params[:controller].include?('members'))%>	
+						<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+											<a itemprop="item" href="<%=t("url."+params[:controller], default:"/")%>" class="pathway"><span itemprop="name"><%=t(params[:controller])%></span></a>
+					
+											<span class="divider">
+							<img src="/images/arroworange.png" alt="" />						</span>
+										<meta itemprop="position" content="2">
+				</li>
+<%end%>
+							<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
+					<span itemprop="name">
+						<%=t(params[:action])%>					</span>
+					<meta itemprop="position" content="<%=params[:controller] != params[:action] ? "3" : "2"%>">
+				</li>
+				</ul>
+</div>
+
+			</div>
+                <div class="row-fluid">
+                                            <!-- Begin Sidebar -->
+                        <div id="sidebar" class="span3">
+                            <div class="sidebar-nav">
+                                		<div class="moduletable">
+						<div class="search">
+	<form action="/nos-formations.html" method="post" class="form-inline" role="search">
+		<label for="mod-search-searchword101" class="element-invisible">Rechercher</label> <input name="searchword" id="mod-search-searchword101" maxlength="200"  class="inputbox search-query input-medium" type="search" placeholder="Recherche..." /><br /> <button class="button btn btn-primary" onclick="this.form.searchword.focus();">Valider</button>		<input type="hidden" name="task" value="search" />
+		<input type="hidden" name="option" value="com_search" />
+		<input type="hidden" name="Itemid" value="110" />
+	</form>
+</div>
+		</div>
+			<div class="moduletable">
+							<h3>Entreprises</h3>
+						<ul class="nav menu mod-list">
+<li class="item-352"><a href="/accompagnez-l-action-du-rsma-guyane.html" >Accompagnez l'action du RSMA Guyane</a></li><li class="item-413"><a href="/newsletter.html" >A découvrir : la newsletter du RSMA Guyane</a></li></ul>
+		</div>
+			<div class="moduletable">
+							<h3>L'Europe</h3>
+						<ul class="nav menu mod-list">
+<li class="item-355"><a href="/l-europe-et-le-rsma-guyane.html" >L'Europe et le RSMA Guyane</a></li></ul>
+		</div>
+			<div class="moduletable">
+							<h3>Utilisateurs en ligne</h3>
+				<%if member_signed_in?%>		
+			<p>Nous avons 1 membre en ligne et aucun invité.</p>
+<%else%>
+
+			<p>Nous avons 1 invité et aucun membre en ligne</p>
+<%end%>
+
+		</div>
+<%=render template: 'members/sessions/newinscription'%>
+<p><%=notice%></p>
+<%=yield :autreinfos%>	
+                            </div>
+                        </div>
+                        <!-- End Sidebar -->
+                                       <%=yield%>
+                                    </div>
+            </div>
+        </div>
+				
+		<div id="menu-bas">
+			<div class="container">
+					<div class="moduletable">
+							<h3>Liens</h3>
+						<ul class="nav menu mod-list">
+<li class="item-140"><a href="http://www.le-sma.com" >Le SMA</a></li><li class="item-385"><a href="http://www.saintlaurentdumaroni.fr/" >Mairie de Saint-Laurent du Maroni</a></li><li class="item-386"><a href="http://www.ville-cayenne.fr/" >Mairie de Cayenne</a></li><li class="item-141"><a href="http://www.guyane.pref.gouv.fr/" >Préfecture de la Guyane</a></li><li class="item-271"><a href="https://www.ctguyane.fr/" >Collectivité Territoriale de Guyane</a></li><li class="item-139"><a href="http://portail-takari.org/" >Takari, portail sur l'orientation et la formation en Guyane</a></li><li class="item-142"><a href="http://www.europe-guyane.eu" >L'Europe s'engage en Guyane</a></li><li class="item-465"><a href="/politique-de-confidentialite.html" >Politique de confidentialité</a></li><li class="item-466"><a href="/mentions-legales.html" >Mentions légales</a></li></ul>
+		</div>
+	
+			</div>
+			
+			<div class="container">
+			
+			Copyright © 2021 , rsmaguyane.fr | <a href="/plan-du-site.html">Plan du site</a> |
+			
+			</div>
+			        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div class="container">
+                <hr />
+                
+                <p class="pull-right">
+                    <a href="#top" id="back-top">
+                        Haut
+                    </a>
+                </p>
+                <p>
+                    <a href="http://www.assistance-joomla.com/" title="support joomla" target="_blank">
+						Maintenance Joomla
+					</a> 
+						effectuée par 
+					<a href="https://www.hob-fr.com" title="expert joomla" target="_blank">
+						HOB France Services
+					</a>
+                </p>
+            </div>
+        </footer>
+		</div>
+
+        
+<div class="custom">
+    
+    <div id="cookie_banner" class="hob_banner">
+        <div class="block_1">
+            <p class="text_banner">Notre site RSMA Guyane utilise des cookies destinés au bon fonctionnement du site internet et de ses fonctionnalités. En refusant les cookies, certains services seront amenés à ne pas fonctionner correctement. Nous conservons votre choix pendant 30 jours. Vous pouvez changer d'avis en cliquant sur le bouton &quot;Cookies&quot; en bas à gauche de chaque page de notre site. <a class="info_link" href="/politique-de-confidentialite.html">En savoir plus</a></p><br/>
+        </div>
+        <div class="block_2">
+            <button id="hob_Modal_btn" class="button_custom btn_settings"
+                    class="button_custom btn_settings">PARAMÉTRER</button>
+
+            <button id="accept_all_g"
+                    class="button_custom btn_ok">ACCEPTER</button>
+            <button id="refuse_all_g" class="button_custom btn_deny"
+                    aria-hidden="true">REFUSER</button>
+        </div>
+    </div>
+    <div id="setting">
+        <button id="setting_btn" class="button_custom">
+            COOKIES        </button>
+    </div>
+    </div>
+<!-- The Modal -->
+<div id="hob_Modal" class="hob_modal">
+
+    <!-- Modal content -->
+    <div class="hob_modal-content">
+        <div class="hob_modal-header">
+            <h3 id="modalLabel">Paramétrages de cookies</h3>
+            <span class="hob_close">&times;</span>
+        </div>
+        <div class="hob_modal-body">
+            <div class="tab">
+                <button class="tablinks" onclick="openCookie(event, 'cookies1')"
+                        id="defaultOpen">Cookies fonctionnels                </button>
+                <button class="tablinks"
+                        onclick="openCookie(event, 'cookies5')">Autres cookies</button>
+                                                    <button class="tablinks"
+                            onclick="openCookie(event, 'cookies6')">Session</button>
+            </div>
+
+            <div id="cookies1" class="tabcontent">
+                <h3>Cookies fonctionnels</h3>
+                <div><p>Ce site utilise des cookies pour assurer son bon fonctionnement et ne peuvent pas être désactivés de nos systèmes. Nous ne les utilisons pas à des fins publicitaires. Si ces cookies sont bloqués, certaines parties du site ne pourront pas fonctionner.</p></div>
+
+                    <span style="display: none;" class="switch">
+                    <input style="display: none;" id="param_switch_1" hidden checked type="checkbox"/>
+                    <label style="display: none;" for="param_switch_1" hidden class="hob_modal_slider round"></label>
+                    </span>
+            </div>
+
+            
+
+            <div id="cookies6" class="tabcontent">
+                <div>
+                <h3>Session</h3>
+                </div>
+                <div>
+                    <div class="alert alert-warning">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                               Veuillez vous connecter pour voir vos activités!
+                              </div>                </div>
+            </div>
+
+            <div id="cookies5" class="tabcontent">
+                <h3>Autres cookies</h3>
+                <p><p>Ce CMS Joomla utilise un certain nombre de cookies pour gérer par exemple les sessions utilisateurs.</p></p>
+                <span class="switch">
+                    <input id="param_switch_5" type="checkbox"/>
+                    <label for="param_switch_5" class="hob_modal_slider round"></label>
+                </span>
+            </div>
+        </div>
+        
+        <div id="hob_feet" class="hob_modal-footer">
+            <button id="accept_all"
+                    class="button_custom accepter_tous">Accepter tous cookies</button>
+            <button id="refuse_all" class="button_custom refuse_tous"
+                    aria-hidden="true">Refuser tous cookies</button>
+            <button id="validation"
+                    class="button_custom valider">Valider</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openCookie(evt, cookieName) {
+        var i;
+        var tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        var tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cookieName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById('cookies1').style.display = "block";
+</script>
+		
+		<script>
+		
+		    jQuery(".encart img ").hover(function() {
+      jQuery(this).stop().animate({opacity: "0.3"}, 'slow');
+    },
+    function() {
+      jQuery(this).stop().animate({opacity: "1"}, 'slow');
+    });
+<%=yield :monjs%>
+		
+		</script>
+
+    </body>
+</html>
+

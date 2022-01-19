@@ -1,0 +1,19 @@
+<%=content_for :addbreadscrumb do%>
+                                                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+
+        <a itemprop="item" href="/rsma-guyane.html" class="pathway"><span itemprop="name">RSMA Guyane</span></a>
+
+
+        <span class="divider">
+                                                        <img src="/images/arroworange.png" alt="" />                                            </span>
+
+<meta itemprop="position" content="2">
+                                </li>
+
+<%end%>
+
+<h1><%=t('titrepages.articles.new')%></h1>
+
+<%= render 'form', article: @article %>
+
+<%= link_to 'Back', articles_path %>

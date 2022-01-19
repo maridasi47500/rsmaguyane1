@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr" dir="ltr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<base href="<%=voirimage_path(idimg:@image.id,titleimg:@image.title,idcat:@image.category.id,titlecat:@image.category.title)%>" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>Médiathèque</title>
+
+	<link href="https://www.rsmaguyane.fr/templates/rsmaguyane/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="https://www.rsmaguyane.fr/media/com_phocagallery/css/main/phocagallery.css" rel="stylesheet" type="text/css" />
+	<link href="https://www.rsmaguyane.fr/media/com_phocagallery/css/main/rating.css" rel="stylesheet" type="text/css" />
+	<link href="https://www.rsmaguyane.fr/media/com_phocagallery/css/custom/default.css" rel="stylesheet" type="text/css" />
+	<link href="https://www.rsmaguyane.fr/plugins/system/jce/css/content.css?aa754b1f19c7df490be4b958cf085e7c" rel="stylesheet" type="text/css" />
+	<link href="https://www.rsmaguyane.fr/templates/rsmaguyane/css/template.css" rel="stylesheet" type="text/css" />
+	<script src="https://www.rsmaguyane.fr/media/jui/js/jquery.min.js?1b18d0364e1adb8adf6bbb25e8c32d4a" type="text/javascript"></script>
+	<script src="https://www.rsmaguyane.fr/media/jui/js/jquery-migrate.min.js?1b18d0364e1adb8adf6bbb25e8c32d4a" type="text/javascript"></script>
+	<script src="https://www.rsmaguyane.fr/media/com_phocagallery/js/fadeslideshow/fadeslideshow.js" type="text/javascript"></script>
+	<script src="https://www.rsmaguyane.fr/media/jui/js/bootstrap.min.js?1b18d0364e1adb8adf6bbb25e8c32d4a" type="text/javascript"></script>
+	<style type="text/css"> 
+ html, body, .contentpane, #all, #main {padding:0px !important;margin:0px !important; width: 100% !important; max-width: 100% !important;} 
+body {min-width:100%} 
+.rt-container {width:100%} 
+ </style>
+<style>
+.mystars {
+width: 100%;
+margin:auto;
+display:inline-block;
+}
+.mystars > table {
+left: 50%;
+padding:auto;
+display:inline-block;
+}
+</style>
+
+<!--[if lt IE 9]>
+	<script src="https://www.rsmaguyane.fr/media/jui/js/html5.js"></script>
+<![endif]-->
+</head>
+<body class="contentpane modal">
+	<div id="system-message-container">
+	</div>
+
+	<script type="text/javascript">
+
+/***********************************************
+
+* Ultimate Fade In Slideshow v2.0- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+
+* This notice MUST stay intact for legal use
+
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+
+***********************************************/
+
+var phocagallery=new fadeSlideShow({
+
+	wrapperid: "phocaGallerySlideshowC",
+
+	dimensions: [640, 480],
+
+	imagearray: [
+<%@image.category.images.each_with_index do |i,k|%>
+["/images/<%=i.image%>", "", "", ""]
+<%if k != @image.category.images.length%>,<%end%>
+<%end%>
+],
+
+	displaymode: {type:'auto', pause: 2000, cycles:0, wraparound:false, randomize: 0},
+
+	persist: false,
+
+	fadeduration: 3000,
+
+	descreveal: "peekaboo",
+
+	togglerid: "",
+
+})
+
+</script>
+
+<div id="phocagallery" class="pg-detail-view"><div class="ph-mc" style="padding-top:10px"><table border="0" class="ph-w100 ph-mc" cellpadding="0" cellspacing="0"><tr><td colspan="6" align="center" valign="middle" style="height:480px;vertical-align: middle;" ><div id="phocaGalleryImageBox" style="width:640px;margin: auto;padding: 0;"><a href="#" onclick="window.parent.SqueezeBox.close();" style="margin:auto;padding:0"><img src="/images/<%=@image.image%>" alt="13" class="pg-detail-image img img-responsive" /></a></div></td></tr><tr><td colspan="6"><div style="padding:0;margin:0;height:3px;font-size:0px;">&nbsp;</div></td></tr><tr>
+<%if @image.prec%>
+<td align="left" width="30%" style="padding-left:48px"><div class="pg-imgbgd"><a href="<%=voirimage_path(idimg:@image.prec.id,titleimg:@image.prec.title,idcat: @image.prec.category.id, titlecat:@image.prec.category.title)%>?tmpl=component" title="Image précédente" id="prev" ><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-prev.png" alt="Image précédente" /></a></div></td>
+<%end%>
+<%if params[:phocaslideshow] == "1" && @image.suiv%>
+<td align="center"><a href="<%=voirimage_path(idimg:@image.id,titleimg:@image.title,idcat: @image.category.id, titlecat:@image.category.title)%>?tmpl=component&amp;phocaslideshow=0" title="Arrêter diaporama"><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-stop.png" alt="Arrêter diaporama" /></a></td>
+<%else%>
+<td align="center"><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-stop-grey.png" alt="Arrêter diaporama" /></td>
+<%end%>
+<%if params[:phocaslideshow] != "1" && @image.suiv%>
+<td align="center"><div class="pg-imgbgd"><a href="<%=voirimage_path(idimg:@image.id,titleimg:@image.title,idcat: @image.category.id, titlecat:@image.category.title.parameterize)%>?tmpl=component&amp;phocaslideshow=1" title="Démarrer diaporama"><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-play.png" alt="Démarrer diaporama" /></a></div></td>
+<%else%>
+<td align="center"><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-play-grey.png" alt="Démarrer diaporama" /></td>
+<%end%>
+
+<td align="center"><div class="pg-imgbgd"><a href="<%=voirimage_path(idimg:@image.id,titleimg:@image.title,idcat: @image.category.id, titlecat:@image.category.title)%>?tmpl=component" onclick="window.location.reload(true);" title="Rafraîchir" ><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-reload.png" alt="Rafraîchir" /></a></div></td><td align="center"><div class="pg-imgbgd"><a href="<%=voiralbum_path(idcat: @image.category.id, titlecat:@image.category.title)%>" onclick="window.parent.SqueezeBox.close();" title="Fermer la fenêtre" ><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-exit.png" alt="Fermer la fenêtre" /></a></div></td>
+<%if @image.suiv%>
+<td align="right" width="30%" style="padding-right:48px"><div class="pg-imgbgd"><a href="<%=voirimage_path(idimg:@image.suiv.id,titleimg:@image.suiv.title,idcat: @image.suiv.category.id, titlecat:@image.suiv.category.title)%>?tmpl=component" title="Image suivante" id="next" ><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-next.png" alt="Image suivante" /></div></td>
+<%end%>
+</tr></table>
+<%if member_signed_in?%>
+<%=form_with url: eval_image_path(@image.id), html: {method:'get',class: "mystars"} do |form|%>
+<table>
+
+<tr>
+<%(1..5).to_a.each do |t|%>
+<td>
+<input name="<%=t%>" id="image<%=t%>" type="image" width="30" height="30" alt="Evaluer <%=t%> étoile"
+       src="/images/evaletoilejaune.png">
+
+</td>
+<%end%>
+</tr>
+</table>
+<%end%>
+<%end%>
+
+</div></div><div id="phocaGallerySlideshowC" style="display:none"></div>
+<%if @image.suiv && params[:phocaslideshow] == "1"%>
+<script>
+window.onload=function(){
+setTimeout(function(){ window.location = "<%=voirimage_path(idimg:@image.suiv.id,titleimg:@image.suiv.title,idcat: @image.suiv.category.id, titlecat:@image.suiv.category.title, phocaslideshow: 1)%>"; }, 5000);
+
+}
+</script>
+<%end%>
+</body>
+</html>
+

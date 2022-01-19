@@ -1,0 +1,364 @@
+fr:
+  choix: 
+    tout: "Tout"
+  actions:
+    rating: 
+      rate: 
+        one: "Vous avez évalué %{count} étoile l'image n°{image}."
+        many: "Vous avez évalué %{count} étoiles l'image n°%{image}."
+      alreadyrate: "Vous avez déjà évalué !"
+    category: 
+      addpic: "Ajouter une image"
+    article: 
+      destroy_all: "Supprimer les articles"
+      destroy: "Supprimer"
+  liens:
+    category: 
+      new: "Nouvel album"
+  messages:
+    article: 
+      noarticle: "Aucun article n'a été écrit pour le moment."
+      create: "L'article a bien été créé."
+      update: "L'article a bien été modifié."
+      destroy: "L'article a bien été supprimé."
+    erreur:
+      mdp: "Mot de passe incorrect"
+  titrepages:
+
+    category:
+      new: "Nouvel album"
+      edit: "Modifier l'album"
+    article:
+      new: "Nouvel article"
+      edit: "Modifier l'article"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'La validation a échoué : %{errors}'
+        restrict_dependent_destroy:
+          has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record}
+            dépendant(e) existe
+          has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
+            dépendants existent
+    models:
+      article: "article"
+      category: "album"
+    attributes:
+      category: 
+        title: "Titre"
+      article: 
+        title: "Titre"
+        content: "Contenu"
+
+  menu:
+    title:
+      1: {}
+      2: {}
+      3:
+        1: "/?Itemid=163"
+        1text: 'Actualités '
+        2:
+          1: {}
+          2: {}
+          3: {}
+          4: {}
+      4:
+        1: "/rsma-guyane.html"
+        1text: 'RSMA Guyane '
+        2:
+          1: {}
+          2: {}
+          3: {}
+          4: {}
+      5:
+        1: "/nos-formations.html"
+        1text: 'Nos formations '
+        2:
+          1: {}
+          2: {}
+          3: {}
+          4: {}
+      6:
+        1: "/espace-entreprise.html"
+        1text: 'ESPACE ENTREPRISE '
+        2:
+          1: {}
+          2: {}
+          3: {}
+          4: {}
+          5: {}
+          6: {}
+      7:
+        1: "/travailler-pour-le-rsma.html"
+        1text: 'Travailler pour le RSMA '
+        2:
+          1: {}
+          2: {}
+      8: {}
+      9: {}
+      10: {}
+      11: {}
+    2: "/"
+    2text: Accueil
+    3:
+      2: https://www.facebook.com/VolontairesRSMAGy/
+      1: https://www.facebook.com/RSMAdelaGuyane
+      1text: Facebook du RSMA Guyane
+      2text: Facebook des Volontaires du RSMA Guyane
+      3: https://twitter.com/rsma_gy
+      3text: Twitter
+      4: http://rsma-guyane.over-blog.com/
+      4text: Blog RSMA Guyane
+    4:
+      2: "/rsma-guyane/notre-mission.html"
+      1: "/rsma-guyane/le-regiment.html"
+      1text: Qui sommes-nous ?
+      2text: Notre mission
+      3: "/rsma-guyane/implantation.html"
+      3text: Où sommes-nous ?
+      4: "/rsma-guyane/les-compagnies.html"
+      4text: Les compagnies
+    5:
+      2: "/nos-formations/les-filieres-de-formation.html"
+      1: "/nos-formations/le-deroulement-des-formations.html"
+      1text: Le déroulement des formations
+      2text: Les filières de formation
+      3: "/nos-formations/la-remise-a-niveau-scolaire.html"
+      3text: La remise à niveau scolaire
+      4: "/nos-formations/recrutement-2020.html"
+      4text: Recrutement 2020
+    6:
+      2: "/espace-entreprise/un-recrutement-de-qualite.html"
+      1: "/espace-entreprise/newsletter-entreprises.html"
+      1text: Newsletter "Entreprises"
+      2text: Un recrutement de qualité
+      3: "/espace-entreprise/label-sma.html"
+      3text: Label SMA
+      4: "/espace-entreprise/taxe-d-apprentissage.html"
+      4text: Taxe d'apprentissage
+      5: "/espace-entreprise/l-europe.html"
+      5text: L'Europe
+      6: "/espace-entreprise/sorties-de-formation-2020.html"
+      6text: Sorties de Formation 2020
+    7:
+      2: "/travailler-pour-le-rsma/s-engager-comme-evsma.html"
+      1: "/travailler-pour-le-rsma/etre-volontaire-technicien.html"
+      1text: Etre volontaire technicien
+      2text: S'engager comme EVSMA
+    8: "/contact.html"
+    8text: CONTACT
+    9: "/mediatheque.html"
+    9text: Médiathèque
+    10: "/pam-2021.html"
+    10text: PAM 2021
+    11: "/cercle-mess-du-rsma-guyane.html"
+    11text: Cercle mess du RSMA-Guyane
+
+  date:
+    abbr_day_names:
+    - dim
+    - lun
+    - mar
+    - mer
+    - jeu
+    - ven
+    - sam
+    abbr_month_names:
+    - 
+    - jan.
+    - fév.
+    - mar.
+    - avr.
+    - mai
+    - juin
+    - juil.
+    - août
+    - sept.
+    - oct.
+    - nov.
+    - déc.
+    day_names:
+    - dimanche
+    - lundi
+    - mardi
+    - mercredi
+    - jeudi
+    - vendredi
+    - samedi
+    formats:
+      default: "%d/%m/%Y"
+      long: "%e %B %Y"
+      short: "%e %b"
+    month_names:
+    - 
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ une heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ un mois
+        other: environ %{count} mois
+      about_x_years:
+        one: environ un an
+        other: environ %{count} ans
+      almost_x_years:
+        one: presqu'un an
+        other: presque %{count} ans
+      half_a_minute: une demi‑minute
+      less_than_x_seconds:
+        zero: moins d'une seconde
+        one: moins d'une seconde
+        other: moins de %{count} secondes
+      less_than_x_minutes:
+        zero: moins d'une minute
+        one: moins d'une minute
+        other: moins de %{count} minutes
+      over_x_years:
+        one: plus d'un an
+        other: plus de %{count} ans
+      x_seconds:
+        one: 1 seconde
+        other: "%{count} secondes"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_days:
+        one: 1 jour
+        other: "%{count} jours"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
+      x_years:
+        one: 1 an
+        other: "%{count} ans"
+    prompts:
+      second: Seconde
+      minute: Minute
+      hour: Heure
+      day: Jour
+      month: Mois
+      year: Année
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: doit être accepté(e)
+      blank: doit être rempli(e)
+      confirmation: ne concorde pas avec %{attribute}
+      empty: doit être rempli(e)
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: n'est pas valide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      model_invalid: 'Validation échouée : %{errors}'
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      other_than: doit être différent de %{count}
+      present: doit être vide
+      required: doit exister
+      taken: n'est pas disponible
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: 'Impossible d''enregistrer ce(tte) %{model} : 1 erreur'
+        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+  helpers:
+    select:
+      prompt: Veuillez sélectionner
+    submit:
+      create: Créer un %{model}
+      submit: Enregistrer cet %{model}
+      update: Modifier cet %{model}
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: milliard
+          million: million
+          quadrillion: million de milliards
+          thousand: millier
+          trillion: billion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: octet
+            other: octets
+          eb: Eo
+          gb: Go
+          kb: ko
+          mb: Mo
+          pb: Po
+          tb: To
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " et "
+      two_words_connector: " et "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%d %B %Y %Hh %Mmin %Ss"
+      long: "%A %d %B %Y %Hh%M"
+      short: "%d %b %Hh%M"
+    pm: pm

@@ -1,0 +1,53 @@
+ <main id="content" role="main" class="span9">
+                        <!-- Begin Content -->
+<%if member_signed_in?%>
+        <div class="content-category">
+<%=link_to t('titrepages.article.edit'), edit_article_path(@article)%>
+</div>
+<%end%>
+
+                        
+                        <div id="system-message-container">
+<%if notice%>
+<div id="system-message">
+                                                        <div class="alert ">
+                                                                                <a class="close" data-dismiss="alert">×</a>
+                        
+
+        <h4 class="alert-heading">Message d'alerte</h4>
+                                                <div>
+                                                                                                                        <div class="alert-message"><%=notice%></div>
+                                                                                                        </div>
+                                                                        </div>
+                                        </div>
+<%end%>
+        </div>
+
+
+                        <div class="item-page" itemscope itemtype="https://schema.org/Article">
+	<meta itemprop="inLanguage" content="fr-FR" />
+	
+		
+			<div class="page-header">
+		<h2 itemprop="headline">
+			<%=@article.title%>		</h2>
+							</div>
+					
+		
+	
+	
+		
+								<div itemprop="articleBody">
+		<div class="body"><div><p class="rtejustify">&nbsp;</p>
+<%@article.bynewline.each do |cont|%>
+<p class="rtejustify"><%=cont.html_safe%></p>
+
+<%end%>
+</div></div> 	</div>
+
+	
+							</div>
+
+                        
+                        <!-- End Content -->
+                    </main>

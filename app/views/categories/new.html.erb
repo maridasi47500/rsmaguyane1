@@ -1,0 +1,18 @@
+<%=content_for :addbreadscrumb do%>
+                                                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+
+        <a itemprop="item" href="/mediatheque.html" class="pathway"><span itemprop="name">Médiathèque</span></a>
+
+
+        <span class="divider">
+                                                        <img src="/images/arroworange.png" alt="" />                                            </span>
+
+<meta itemprop="position" content="2">
+                                </li>
+
+<%end%>
+
+<h1><%=t('titrepages.category.new')%></h1>
+
+<%= render 'form', category: @category %>
+

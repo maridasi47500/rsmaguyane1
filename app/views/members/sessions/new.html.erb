@@ -1,0 +1,80 @@
+    <main id="content" role="main" class="span9">
+                        <!-- Begin Content -->
+                        
+                        <div id="system-message-container">
+<%=notice%>
+	</div>
+
+                        <div class="login">
+									<form action="/connexion.html?task=user.login" method="post" class="form-validate form-horizontal well">
+		<fieldset>
+			
+<div class="control-group">
+			<div class="control-label">
+			<label id="username-lbl" for="username" class="required">
+	Identifiant<span class="star">&#160;*</span></label>
+					</div>
+		<div class="controls">
+		<input type="text" name="username" id="username"  value="" class="validate-username required" size="25"       required aria-required="true"   autofocus    />
+	</div>
+</div>
+
+<div class="control-group">
+			<div class="control-label">
+			<label id="password-lbl" for="password" class="required">
+	Mot de passe<span class="star">&#160;*</span></label>
+					</div>
+		<div class="controls">
+		<input
+	type="password"
+	name="password"
+	id="password"
+	value=""
+	  class="validate-password required"   size="25" maxlength="99" required aria-required="true" />	</div>
+</div>
+							
+<div class="control-group">
+			<div class="control-label">
+			<label id="secretkey-lbl" for="secretkey">
+	Clé secrète</label>
+							<span class="optional">(facultatif)</span>
+					</div>
+		<div class="controls">
+		<input type="text" name="secretkey" id="secretkey"  value=""  size="25"         autocomplete="one-time-code"     />
+	</div>
+</div>
+										<div class="control-group">
+					<div class="control-label">
+						<label for="remember">
+							Se rappeler de moi						</label>
+					</div>
+					<div class="controls">
+						<input id="remember" type="checkbox" name="remember" class="inputbox" value="yes" />
+					</div>
+				</div>
+						<div class="control-group">
+				<div class="controls">
+					<button type="submit" class="btn btn-primary">
+						Connexion					</button>
+				</div>
+			</div>
+						<input type="hidden" name="return" value="aHR0cHM6Ly93d3cucnNtYWd1eWFuZS5mci9yc21hLWd1eWFuZS5odG1s" />
+			<input type="hidden" name="0545a07a6cac0a557c45a2595bfbc332" value="1" />		</fieldset>
+	</form>
+</div>
+<div>
+	<ul class="nav nav-tabs nav-stacked">
+		<li>
+			<a href="/mon-compte.html?view=reset">
+				Mot de passe oublié ?			</a>
+		</li>
+		<li>
+			<a href="/mon-compte.html?view=remind">
+				Identifiant oublié ?			</a>
+		</li>
+					</ul>
+</div>
+
+                        
+                        <!-- End Content -->
+                    </main>

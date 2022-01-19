@@ -1,0 +1,78 @@
+<%=content_for :autreinfos do%>                        
+
+<div class="moduletable">
+                                                        <h3>Connexion utilisateur</h3>
+                                                <form action="/connexion.html" method="post" id="login-form" class="form-inline">
+                <div class="userdata">
+                <div id="form-login-username" class="control-group">
+                        <div class="controls">
+                                                                        <div class="input-prepend">
+                                                <span class="add-on">
+                                                        <span class="icon-user hasTooltip" title="Identifiant"></span>
+                                                        <label for="modlgn-username" class="element-invisible">Identifiant</label>
+                                                </span>
+                                                <input id="modlgn-username" type="text" name="username" class="input-small" tabindex="0" size="18" placeholder="Identifiant" />
+                                        </div>
+                                                        </div>
+                </div>
+
+                <div id="form-login-password" class="control-group"> 
+                        <div class="controls"> 
+                                                                        <div class="input-prepend"> 
+                                                <span class="add-on"> 
+                                                        <span class="icon-lock hasTooltip" title="Mot de passe"> 
+                                                        </span> 
+                                                                <label for="modlgn-passwd" class="element-invisible">Mot de passe                                                       </label> 
+                                                </span> 
+                                                <input id="modlgn-passwd" type="password" name="password" class="input-small" tabindex="0" size="18" placeholder="Mot de passe" /> 
+                                        </div> 
+                                                        </div> 
+                </div> 
+
+                                <div id="form-login-secretkey" class="control-group">
+                        <div class="controls">
+                                                                        <div class="input-prepend input-append">
+                                                <span class="add-on">
+                                                        <span class="icon-star hasTooltip" title="Clé secrète">
+                                                        </span>
+                                                                <label for="modlgn-secretkey" class="element-invisible">Clé secrète                                                     </label>
+                                                </span>
+                                                <input id="modlgn-secretkey" autocomplete="one-time-code" type="text" name="secretkey" class="input-small" tabindex="0" size="18" placeholder="Clé secrète" />
+                                                <span class="btn width-auto hasTooltip" title="Si vous avez activé l'authentification en deux étapes dans votre compte d'utilisateur, merci de saisir votre clé secrète. Si vous ne comprenez pas ce dont il s'agit, vous pouvez laisser le champ vide.">
+                                                        <span class="icon-help"></span>
+                                                </span>
+                                </div>
+
+                        </div>
+                </div>
+
+                                                <div id="form-login-remember" class="control-group checkbox">
+                        <label for="modlgn-remember" class="control-label">Se souvenir de moi</label> <input id="modlgn-remember" type="checkbox" name="remember" class="inputbox" value="yes"/>
+                </div>
+                                <div id="form-login-submit" class="control-group">
+                        <div class="controls">
+                                <button type="submit" tabindex="0" name="Submit" class="btn btn-primary login-button">Connexion</button>
+                        </div>
+                </div>
+                                        <ul class="unstyled">
+                                                        <li>
+                                        <a href="/mon-compte.html?view=remind">
+                                        Identifiant oublié ?</a>
+                                </li>
+                                <li>
+                                        <a href="/mon-compte.html?view=reset">
+                                        Mot de passe oublié ?</a>
+                                </li>
+                                <li>
+                                        <a href="/mon-compte.html?view=signup">
+                                        Inscription</a>
+                                </li>
+                        </ul>
+                <input type="hidden" name="option" value="com_users" />
+                <input type="hidden" name="task" value="user.login" />
+                <input type="hidden" name="return" value="aHR0cHM6Ly93d3cucnNtYWd1eWFuZS5mci9ub3MtZm9ybWF0aW9ucy5odG1s" />
+                <input type="hidden" name="0127a435c3069ee621cb5580e27f7dba" value="1" />       </div>
+        </form>
+                </div>
+
+<%end%>

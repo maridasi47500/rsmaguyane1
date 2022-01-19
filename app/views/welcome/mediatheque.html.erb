@@ -1,0 +1,32 @@
+                                <main id="content" role="main" class="span9">
+                        <!-- Begin Content -->
+                        
+                        <div id="system-message-container">
+	</div>
+<%if member_signed_in?%>
+<%=link_to t('liens.category.new'), new_category_path%>
+<%end%>
+                        <div id="phocagallery" class="pg-categories-view pg-csv"><div id="pg-icons"><a href="/mediatheque.feed" title="RSS"><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-feed.png" alt="RSS" /></a></div><div class="ph-cb"></div>
+
+
+<div id="phocagallery-categories-detail">
+<%@categories.each do |t|%>
+<div style="width:33%;" class="pg-cats-box-float2">
+<div class="pg-cat-img-detail small">
+<div class="pg-cat-img-detail-box">
+ <table border="0" cellpadding="0" cellspacing="0">
+  <tr>   <td style="text-align:center;vertical-align:middle;"><a href="<%=voiralbum_path(idcat: t.id, titlecat: t.title.parameterize)%>"><img src="/images/<%=t.images[0].image%>" alt="<%=t.images[0].image%>" style="" /></a></td>  </tr>
+ </table>
+</div>
+<div style="margin-right:5px;margin-left:50px;">
+<div class="pg-field-table2"><a href="<%=voiralbum_path(idcat: t.id, titlecat: t.title.parameterize)%>" class="category"><%=t.title%></a> <span class="small">(<%=t.images.length%>)</span></div></div>
+</div>
+</div>
+<%end%>
+<div style="clear:both"></div>
+</div>
+
+<div class="ph-cb pg-csv-paginaton">&nbsp;</div><div style="display:block;color:#ccc;text-align:right;">Powered by <a href="https://www.phoca.cz/phocagallery">Phoca Gallery</a></div></div>
+                        
+                        <!-- End Content -->
+                    </main>

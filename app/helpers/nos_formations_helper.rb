@@ -1,0 +1,2 @@
+module NosFormationsHelper
+end

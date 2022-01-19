@@ -1,0 +1,22 @@
+   <%=fields_for :category do |form|%>
+   <%=form.fields_for :images do |ff|%>
+  <div class="field">
+    <%= ff.label :title %>
+    <%= ff.text_field :title, name: "category[images_attributes][#{params[:n]}][title]" %>
+    </div>
+  <div class="field">
+    <%= ff.label :date %>
+    <%= ff.date_field :date, name: "category[images_attributes][#{params[:n]}][date]" %>
+    </div>
+
+  <div class="field">
+    <%= ff.hidden_field :image, name: "category[images_attributes][#{params[:n]}][image]" %>
+
+    <%= ff.label :image %>
+    <%= ff.file_field :image, name: "category[images_attributes][#{params[:n]}][image]", onchange: "preview(this);return false;" %>
+    <div class="preview"></div>
+  </div>
+    <%= ff.hidden_field :member_id,name:"category[images_attributes][#{params[:n]}][member_id]", value: params[:memberid] %>
+
+   <%end%>
+   <%end%>

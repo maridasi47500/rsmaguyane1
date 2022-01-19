@@ -1,0 +1,152 @@
+<%=content_for :moncss do%>
+.icon-first {
+}
+.icon-last {
+}
+.icon-previous {
+}
+.icon-next {
+}
+.imageiconalbum {
+width:100px;
+min-height:150px;
+}
+.img {
+min-height:100px;
+}
+<%end%>
+<%=content_for :addbreadscrumb do%>
+                                                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                                                                        <a itemprop="item" href="/mediatheque.html" class="pathway"><span itemprop="name">Médiathèque</span></a>
+
+
+        <span class="divider">
+                                                        <img src="/images/arroworange.png" alt="" />                                            </span>
+
+<meta itemprop="position" content="2">
+                                </li>
+
+<%end%>
+
+
+<main id="content" role="main" class="span9">
+                        <!-- Begin Content -->
+                        
+                        <div id="system-message-container">
+<%if notice%>
+<div id="system-message">
+                                                        <div class="alert ">
+
+<a class="close" data-dismiss="alert">×</a>
+
+
+        <h4 class="alert-heading">Message d'alerte</h4>
+                                                <div>
+
+                                        <div class="alert-message"><%=notice%></div>
+
+                        </div>
+                                                                        </div>
+                                        </div>
+<%end%>
+
+	</div>
+<%if member_signed_in?%>
+<%=link_to t('liens.category.edit'), edit_category_path(@category)%>
+<%end%>
+
+
+                        <div id="phocagallery" class="pg-category-view pg-cv"><div class="page-header"><h1>Médiathèque - <%=@category.title%></h1></div><div id="pg-icons"><a href="<%=voiralbumfeed_path(idcat: @category.id, titlecat: @category.title)%>" title="RSS"><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-feed.png" alt="RSS" /></a></div><div style="clear:both"></div><div id="pg-msnr-container" class="pg-msnr-container">
+<div class="imageiconalbum pg-cv-box item pg-grid-sizer">
+ <div class="pg-cv-box-img pg-box1">
+  <div class="pg-box2">
+   <div class="pg-box3">
+<a class="" href="/mediatheque.html" ><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-up-images.png" alt="Retour" itemprop="thumbnail" /></a>
+</div></div></div>
+<div class="pg-box-img-bottom">
+</div>
+</div>
+<%@images.each_with_index do |image,q|%>
+<div class="pg-cv-box item pg-grid-sizer imageiconalbum">
+ <div class="pg-cv-box-img pg-box1">
+  <div class="pg-box2">
+   <div class="pg-box3">
+<a class="pg-modal-button" title="" href="<%=voirimage_path(idimg: image.id, titleimg: image.title.to_s.parameterize,idcat:@category.id,titlecat:@category.title)%>" rel="{handler: 'iframe', size: {x: 680, y: 560}, overlayOpacity: 0.3}"  ><img src="/images/<%=image.image%>" alt="<%=image.title%>" class="pg-image img img-responsive c-Image c-Image--shaded" itemprop="thumbnail" /></a>
+</div></div></div>
+<div class="pg-box-img-bottom">
+<div class="pg-cv-name"><%=image.mytitle(q)%></div><div class="pg-icon-detail"> <a class="pg-modal-button" title="D&eacute;tail" href="<%=voirimage_path(idimg: image.id, titleimg: image.title.parameterize,idcat:@category.id,titlecat:@category.title.parameterize)%>" rel="{handler: 'iframe', size: {x: 680, y: 560}, overlayOpacity: 0.3}" ><img src="https://www.rsmaguyane.fr/media/com_phocagallery/images/icon-view.png" alt="Détail" itemprop="thumbnail" /></a></div>
+<div class="ph-cb"></div>
+</div>
+</div>
+<%end%>
+
+</div>
+<div class="ph-cb">&nbsp;</div><form action="<%=voiralbum_path(idcat: @category.id, titlecat: @category.title.parameterize)%>" method="post" name="adminForm" id="adminForm">
+<div class="pagination pagination-centered">Tri&nbsp;
+	<%=select_tag :imgordering, options_for_select([
+["1","Nr. image croissant"],
+	["2","Nr. image d&eacute;croissant"],
+	["3","Titre croissant"],
+	["4","Titre d&eacute;croissant"],
+	["5","Date croissante"],
+	["6","Date d&eacute;croissante"],
+	["11","Nb &eacute;valuations croissant"],
+	["12","Nb &eacute;valuations d&eacute;croissant"],
+	["13","Evaluation croissante"],
+	["14","Evaluation d&eacute;croissante"],
+	["15","Hits croissants"],
+	["16","Hits d&eacute;croissants"]].to_h.invert.to_a, params[:imgordering]),{class:"inputbox", size:"1", onchange:"this.form.submit()"}%>
+Nb à afficher&nbsp;<%=select_tag "limit", options_for_select([5,10,15,20,50,[t('choix.tous'),0]],params[:limit]), {class:"inputbox input-mini", size: "1", onchange: "this.form.submit()"}%>
+<div class="counter pull-right">Page <%=params[:page].to_i+1%> sur <%=@images1.length%></div><div class="pagination pagination-centered"><ul class="pagination-list">
+<%if @images1.length > 1 && @images1[0] != @images1[params[:page].to_i]%>
+<li><a title="Début" href="<%=voiralbum_path(idcat:@category.id, titlecat: @category.title, start: (params[:imgordering].to_i+(params[:page].to_i + 1)))%>" class="pagenav" onclick="navigpage(this);return false;"><span class="icon-first"></span></a></li>
+<%else%>
+<li class="disabled"><a><span class="icon-first"></span></a></li>
+
+
+<%end%>
+
+<%if @images1.length > 1 && @images1[(params[:page] - 1)]%>
+<li><a title="Précédent" href="<%=voiralbum_path(idcat:@category.id, titlecat: @category.title, start: (params[:imgordering].to_i+(params[:page].to_i + 1)))%>" class="pagenav" onclick="navigpage(this);return false;"><span class="icon-previous"></span></a></li>
+<%else%>
+<li class="disabled"><a><span class="icon-previous"></span></a></li>
+<%end%>
+<li class="active hidden-phone"><a>1</a></li><li class="hidden-phone"><a title="2" href="<%=voiralbum_path(idcat:@category.id, titlecat: @category.title, start: (params[:imgordering].to_i+(params[:page].to_i + 1)))%>" class="pagenav" onclick="navigpage(this);return false;">2</a></li>
+<%if @images1.length > 1 && @images1[(params[:page] + 1)]%>
+<li><a title="Suivant" href="<%=voiralbum_path(idcat:@category.id, titlecat: @category.title, start: (params[:imgordering].to_i+(params[:page].to_i + 1)))%>" class="pagenav" onclick="navigpage(this);return false;"><span class="icon-next"></span></a></li>
+<%else%>
+<li class="disabled"><a><span class="icon-next"></span></a></li>
+<%end%>
+
+
+<%if @images1.length > 1 && @images1[-1] != @images1[params[:page].to_i]%>
+
+<li><a title="Fin" href="<%=voiralbum_path(idcat:@category.id, titlecat: @category.title, start: (params[:imgordering].to_i+(params[:page].to_i + 1)))%>" class="pagenav" onclick="navigpage(this);return false;"><span class="icon-last"></span></a></li>
+<%else%>
+<li class="disabled"><a><span class="icon-last"></span></a></li>
+<%end%>
+
+</ul></div></div>
+
+<input type="hidden" name="controller" value="category" />
+<input type="hidden" name="page" value="<%=params[:page]%>" />
+
+<input type="hidden" name="ae35ee396185edfb73f605511dcaac14" value="1" /></form><div class="ph-cb pg-cv-paginaton">&nbsp;</div><div style="display:block;color:#ccc;text-align:right;">Powered by <a href="https://www.phoca.cz/phocagallery">Phoca Gallery</a></div></div>
+                        
+                        <!-- End Content -->
+                    </main>
+
+<%=content_for :monjs do%>
+function navigpage(link) {
+if (link.title === "Début") {
+adminForm.page.value = "0";
+} else if (link.title === "Précédent") {
+adminForm.page.value = "<%=(params[:page].to_i - 1)%>";
+} else if (link.title === "Suivant") {
+adminForm.page.value = "<%=(params[:page].to_i + 1)%>";
+} else if (link.title === "Fin") {
+adminForm.page.value = "<%=@images1.length%>";
+}
+adminForm.submit();
+}
+<%end%>

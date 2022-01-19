@@ -1,0 +1,118 @@
+<%=content_for :moncss do%>
+.colorblue {
+background: #3a87ad;
+color:#fff;
+border: 0px;
+}
+<%end%>
+<main id="content" role="main" class="span9">
+                        <!-- Begin Content -->
+                        
+                        <div id="system-message-container">
+<%if notice%>
+<div id="system-message">
+							<div class="alert ">
+										<a class="close" data-dismiss="alert">×</a>
+
+											<h4 class="alert-heading">Message d'alerte</h4>
+						<div>
+															<div class="alert-message"><%=notice%></div>
+													</div>
+									</div>
+					</div>
+<%end%>
+	</div>
+
+                        <div class="category-list">
+
+<div>
+<%if member_signed_in?%>
+	<div class="content-category">
+<%=link_to t('titrepages.article.new'), new_article_path%>
+</div>
+<%end%>
+	<div class="content-category">
+		
+				
+							
+				<form action="/rsma-guyane.html" method="post" name="adminForm" id="adminForm" class="form-inline">
+	<fieldset class="filters btn-toolbar clearfix">
+		<legend class="hide">Filtres</legend>
+							<div class="btn-group pull-right">
+				<label for="limit" class="element-invisible">
+					Affichage #				</label>
+				<%=select_tag "limit",options_for_select([5,10,15,20,25,30,50,100,[t('choix.tout'),0]], params[:limit]), {class: "inputbox input-mini", size:"1", onchange:"this.form.submit()", prompt:"Grouper par"}%>
+<%=select_tag "page", options_for_select((1..@articles1.length).map.with_index{|p,i|[p,i]}, params[:page]), {size: 1, onchange: "this.form.submit()",class: "inputbox input-mini", prompt: "Page"}%>
+			</div>
+		
+		<input type="hidden" name="filter_order" value="" />
+		<input type="hidden" name="filter_order_Dir" value="" />
+		<input type="hidden" name="limitstart" value="" />
+		<input type="hidden" name="task" value="" />
+	</fieldset>
+
+	<div class="control-group hide pull-right">
+		<div class="controls">
+			<button type="submit" name="filter_submit" class="btn btn-primary">Filtre</button>
+		</div>
+	</div>
+	</form>
+
+<%if @articles.length > 0%>
+	<table class="category table table-striped table-bordered table-hover">
+		<caption class="hide">Liste des articles dans la catégorie RSMA Guyane</caption>
+		<thead>
+			<tr>
+				<th scope="col" id="categorylist_header_title">
+					<a href="#" onclick="adminForm.filter_order.value = 'titre';adminForm.submit();" class="hasPopover" title="Titre" data-content="Cliquez pour trier cette colonne" data-placement="top">Titre</a>				</th>
+													<th scope="col" id="categorylist_header_author">
+						<a href="#" onclick="adminForm.filter_order.value = 'author';adminForm.submit();" class="hasPopover" title="Auteur" data-content="Cliquez pour trier cette colonne" data-placement="top">Auteur</a>					</th>
+													<th scope="col" id="categorylist_header_hits">
+						<a href="#" onclick="adminForm.filter_order.value = 'clics';adminForm.submit();" class="hasPopover" title="Clics" data-content="Cliquez pour trier cette colonne" data-placement="top">Clics</a>					</th>
+<%if member_signed_in?%>
+													<th scope="col" id="categorylist_header_destroy">
+						<a href="#" title="destroy"><%=t('actions.article.destroy_all')%></a>					</th>
+<%end%>
+																			</tr>
+		</thead>
+		<tbody>
+<%@articles.each do |article|%>
+
+									<tr class="cat-list-row0" >
+						<td headers="categorylist_header_title" class="list-title">
+									<a href="<%=rsmaguyanearticleshow_path(id: article.id, title: article.title.parameterize)%>">
+						<%=article.title%>					</a>
+																								</td>
+										<td headers="categorylist_header_author" class="list-author">
+																														Écrit par <%=article.member.login%>															</td>
+										<td headers="categorylist_header_hits" class="list-hits">
+							<span class="badge badge-info">
+								Clics : <%=article.hits.to_i%>							</span>
+						</td>
+<%if member_signed_in?%>
+										<td headers="categorylist_header_destroy" class="list-destroy">
+
+        <%= button_to I18n.t('actions.article.destroy'), article,method: :delete, data: { confirm: 'Are you sure?' },class: "colorblue" %></td>
+
+
+<%end%>
+															</tr>
+
+<%end%>
+				</tbody>
+	</table>
+
+
+<%else%>
+<p><%=t('messages.article.noarticle')%></p>
+<%end%>
+
+			</div>
+</div>
+
+
+</div>
+
+                        
+                        <!-- End Content -->
+                    </main>

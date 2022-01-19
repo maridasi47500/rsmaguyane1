@@ -1,0 +1,132 @@
+<%=content_for :moncss do%>
+.field > input[type=text], .field > textarea {
+width:100%;
+
+}
+.field {
+padding-right:20px;
+}
+<%end%>
+
+<%= form_with(model: category, local: true) do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+<%=link_to t('actions.category.addpic'), '', data:{nb: category.images.length},onclick: "ajouterpic(this);return false;"%>
+    <%= form.hidden_field :member_id %>
+  <div class="images">
+   <%category.images.each do |image|%>
+   <%=form.fields_for :images,image do |ff|%>
+  <div class="field">
+    <%= ff.label :title %>
+    <%= ff.text_field :title %>
+    </div>
+
+  <div class="field">
+    <%= ff.label :date %>
+    <%= ff.date_field :date %>
+    </div>
+
+  <div class="field">
+    <%= ff.hidden_field :image %>
+    <%= ff.label :image %>
+    <%= ff.file_field :image, onchange: "preview(this);return false;" %>
+<%=render image%>
+  </div>
+    <%= ff.hidden_field :member_id %>
+
+   <%end%>
+   <%end%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%=content_for :monjs do%>
+function ajouterpic(pic) {
+pic.dataset.nb = pic.dataset.nb||0;
+
+$.ajax({
+url: "<%=images_categories_path%>?n="+pic.dataset.nb+"&memberid=<%=current_member.id%>",
+success: function(data){
+$('.images').append(data);
+}
+});
+pic.dataset.nb = Number(pic.dataset.nb)+1;
+return false;
+}
+function returnFileSize(number) {
+  if(number < 1024) {
+    return number + 'bytes';
+  } else if(number >= 1024 && number < 1048576) {
+    return (number/1024).toFixed(1) + 'KB';
+  } else if(number >= 1048576) {
+    return (number/1048576).toFixed(1) + 'MB';
+  }
+}
+const fileTypes = [
+  "image/apng",
+  "image/bmp",
+  "image/gif",
+  "image/jpeg",
+  "image/pjpeg",
+  "image/png",
+  "image/svg+xml",
+  "image/tiff",
+  "image/webp",
+  "image/x-icon"
+];
+
+function validFileType(file) {
+  return fileTypes.includes(file.type);
+}
+function preview(input){
+  console.log(input.parentElement);
+  while(input.parentElement.children[2] && input.parentElement.children[2].className.includes('preview')) {
+    input.parentElement.removeChild(input.parentElement.children[2]);
+  }
+
+  const curFiles = input.files;
+  if(curFiles.length === 0) {
+    const para = document.createElement('p');
+    para.textContent = 'No files currently selected for upload';
+    input.parentElement.appendChild(para);
+  } else {
+    const list = document.createElement('ol');
+    input.parentElement.appendChild(list);
+
+    for(const file of curFiles) {
+      const listItem = document.createElement('li');
+      const para = document.createElement('p');
+      if(validFileType(file)) {
+        para.textContent = `File name ${file.name}, file size ${returnFileSize(file.size)}.`;
+        const image = document.createElement('img');
+        image.src = URL.createObjectURL(file);
+
+        listItem.appendChild(image);
+        listItem.appendChild(para);
+      } else {
+        para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
+        listItem.appendChild(para);
+      }
+
+      list.appendChild(listItem);
+    }
+  }
+
+}
+<%end%>

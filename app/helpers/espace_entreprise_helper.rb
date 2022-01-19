@@ -1,0 +1,2 @@
+module EspaceEntrepriseHelper
+end

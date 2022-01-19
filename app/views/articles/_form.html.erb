@@ -1,0 +1,45 @@
+<%=content_for :moncss do%>
+.field > input[type=text], .field > textarea {
+width:100%;
+
+}
+.field {
+padding-right:20px;
+}
+.mycontent {
+min-height: 400px;
+}
+<%end%>
+
+
+<%= form_with(model: article, local: true) do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+        <% article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, class:"mycontent" %>
+  </div>
+
+    <%= form.hidden_field :hits %>
+
+    <%= form.hidden_field :member_id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
